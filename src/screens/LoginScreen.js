@@ -49,9 +49,18 @@ const LoginScreen = () => {
         if(isValid) {
             axios.post(`${endpoint}/login`, formData)
                 .then((response) =>  {
-                    /* history.push('/login') */
-                    toast.success('¡Iniciaste sesión exitosamente!🤙');
                     setUser(response.data.data)
+
+                    const userRole = response.data.data.accessType;
+                    if(userRole == 'buyer') {
+                        history.push('/')
+                    } else if(userRole == 'seller') {
+                        history.push('/products')
+                    } else if(userRole == 'admin') {
+                        history.push('/admin')
+                    }
+
+                    toast.success('¡Iniciaste sesión exitosamente!🤙');
                 })
                 .catch((error) => {
                     //TODO: ¿Qué pasa si el error es ocasionado por algo más?

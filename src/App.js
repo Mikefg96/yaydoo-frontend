@@ -4,9 +4,15 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 
 import { UserContext } from './UserContext'
+
+// Components
 import Header from './components/Header'
+import ProtectedRoute from './components/ProtectedRoute'
+
+// Screens
 import RegisterScreen from './screens/RegisterScreen'
 import LoginScreen from './screens/LoginScreen'
+import ProductsScreen from './screens/ProductsScreen'
 
 const App = () => {
 	const [user, setUser] = useState(null);
@@ -22,6 +28,7 @@ const App = () => {
 						{/* <Route path='/' exact component={LandingScreen}></Route> */}
 						<Route path='/register' component={RegisterScreen}></Route>	
 						<Route path='/login' component={LoginScreen}></Route>
+						<ProtectedRoute path='/products' component={ProductsScreen} isAuth={user}/>
 					</main>
 				</Container>
 			</UserContext.Provider>
