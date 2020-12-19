@@ -2,7 +2,7 @@ import React, { useReducer, useState } from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const endpoint = process.env.REACT_APP_API_URL
@@ -15,7 +15,6 @@ const formReducer = (state, event) => {
 }
 
 const RegisterScreen = () => {
-
     let history = useHistory()
     const [formData, setFormData] = useReducer(formReducer, {})
     const [emailError, setEmailError] = useState('')
@@ -58,12 +57,12 @@ const RegisterScreen = () => {
         if(isValid) {
             axios.post(`${endpoint}/register`, formData)
             .then((response) =>  {
-                
                 history.push('/login')
                 toast.success('¡Cuenta creada exitosamente!🤙');
                 console.log(response);
             })
             .catch((error) => {
+                //TODO: ¿Qué pasa si el error es ocasionado por algo más?
                 setEmailError('Ya existe una cuenta asociada al correo electrónico.')
                 console.log(error);
             });
