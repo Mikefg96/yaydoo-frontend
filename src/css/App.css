@@ -1,0 +1,30 @@
+* {
+    font-family: 'Lato', sans-serif !important;
+}
+
+.red { color: red !important}
+
+#screen-container {
+    padding: 0 !important;
+}
+
+.register-wrapper {
+    height: 92vh;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav {
+    height: 8vh;
+}
+
+    .nav-link {
+        color: white !important;
+    }
+
+    .nav-link:hover{
+        text-decoration: none !important;
+    }

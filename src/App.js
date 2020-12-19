@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import Header from './components/Header'
+import RegisterScreen from './screens/RegisterScreen'
+import LoginScreen from './screens/LoginScreen'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+		<Router>
+			<Header />
+			<Container fluid id='screen-container'>
+				<main>
+					<ToastContainer />
+{/* 					<Route path='/' component={LandingScreen} exact></Route> */}
+					<Route path='/register' component={RegisterScreen}></Route>
+					<Route path='/login' component={LoginScreen}></Route>
+				</main>
+			</Container>
+		</Router>
+	);
 }
 
 export default App;
