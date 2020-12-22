@@ -59,7 +59,6 @@ const RegisterScreen = () => {
             .then((response) =>  {
                 history.push('/login')
                 toast.success('¡Cuenta creada exitosamente!🤙');
-                console.log(response);
             })
             .catch((error) => {
                 //TODO: ¿Qué pasa si el error es ocasionado por algo más?
@@ -71,7 +70,7 @@ const RegisterScreen = () => {
 
     return (
         <div className='register-wrapper relative overflow-hidden'>
-            <Card>
+            <Card  data-aos='fade-right'>
                 <Card.Body>
                     <Form className='mb4' onSubmit={handleSubmit}>
                         <Form.Group controlId="formBasicEmail">

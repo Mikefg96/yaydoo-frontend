@@ -3,6 +3,19 @@
 }
 
 .red { color: red !important}
+.h0 { height: auto !important }
+
+#nav {
+    height: 8vh;
+}
+
+    .nav-link {
+        color: white !important;
+    }
+
+    .nav-link:hover{
+        text-decoration: none !important;
+    }
 
 #screen-container {
     padding: 0 !important;
@@ -17,14 +30,27 @@
     align-items: center;
 }
 
-#nav {
-    height: 8vh;
+.product-screen {    
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2%;
 }
 
-    .nav-link {
-        color: white !important;
-    }
+/* Landing Screen */ 
 
-    .nav-link:hover{
-        text-decoration: none !important;
-    }
+#landing-screen {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+
+.products-wrapper {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    border-top: 1px solid grey;
+
+}

@@ -18,7 +18,7 @@ const formReducer = (state, event) => {
 
 const LoginScreen = () => {
     let history = useHistory()
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
     const [formData, setFormData] = useReducer(formReducer, {})
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
@@ -51,14 +51,7 @@ const LoginScreen = () => {
                 .then((response) =>  {
                     setUser(response.data.data)
 
-                    const userRole = response.data.data.accessType;
-                    if(userRole == 'buyer') {
-                        history.push('/')
-                    } else if(userRole == 'seller') {
-                        history.push('/products')
-                    } else if(userRole == 'admin') {
-                        history.push('/admin')
-                    }
+                    history.push('/')
 
                     toast.success('¡Iniciaste sesión exitosamente!🤙');
                 })
@@ -72,7 +65,7 @@ const LoginScreen = () => {
 
     return (
         <div className='register-wrapper relative overflow-hidden'>
-            <Card>
+            <Card data-aos='fade-left'>
                 <Card.Body>
                     <Form className='mb4' onSubmit={handleSubmit}>
                         <Form.Group controlId="formBasicEmail">
